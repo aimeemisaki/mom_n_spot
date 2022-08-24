@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 django-on-heroku = "*"
 gunicorn = "*"
 python-dotenv = "*"
+pillow = "*"
 
 [dev-packages]
 
