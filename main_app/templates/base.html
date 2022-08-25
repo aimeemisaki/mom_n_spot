@@ -16,7 +16,7 @@
     <body >
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="/">Spotify</a>
+                <a class="navbar-item" href="/">MOM N SPOT</a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -26,7 +26,7 @@
             {% if user.is_authenticated %}
                 <div class="navbar-menu navbar-end">
                     <span class="navbar-item">Welcome: {{user.username}}</span>
-                    <a class="navbar-item" href="{% url 'artist_list' %}">Post a story</a>
+                    <a class="navbar-item" href="{% url 'post_create' %}">Post a story</a>
                     <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
                 </div>
             {% else %}
