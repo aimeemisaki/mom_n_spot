@@ -11,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.core.files.storage import FileSystemStorage
 
 # Home view
 @method_decorator(login_required, name='dispatch')
@@ -45,11 +46,13 @@ class PostList(TemplateView):
 
 # uploading image to form
 def upload(request):
+    context = {}
     if request.method == 'POST':
         uploaded_file = request.FILES('img')
-        # uploaded_file.name 
-        # uploaded_file.size
-    return render(request, 'upload.html')
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+        context['url'] = fs.url(name)
+    return render(request, 'upload.html', context)
 
 class PostCreate(CreateView):
     model = Post

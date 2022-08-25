@@ -11,6 +11,7 @@ urlpatterns = [
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
 ]
 
+
 #/
 # accounts/signup/
 # momnpops/
