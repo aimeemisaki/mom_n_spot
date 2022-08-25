@@ -3,18 +3,23 @@
 {% block title %} Upload Spot{% endblock %}
 
 {% block content %}  
-
-<div class="container">
-    <!--Simple Form-->
+<h2>Post a Mom n Spot</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="img" accept="image/*">
+    <button class="btn btn-dark my-4" type="submit">Submit</button>
+</form>
+<!-- <div class="container">
+    Simple Form
     <h2 class="my-4">Upload image</h2>
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
         <input type="file" name="upload" accept="image/*">
         <br>
         <button class="btn btn-dark my-4" type="submit">Submit</button>
-    </form>
+    </form> -->
 
-    <!--See Image Uploaded-->
+    <!-- See Image Uploaded
     <h2 class="my-4">Movie Poster</h2>
     <div class="row">
     {% if file_url %}
@@ -25,7 +30,7 @@
     <p>No photos were successfully uploaded</p>
     {% endif %}
     </div>
-</div>
+</div> -->
     
 
 {% endblock %}
