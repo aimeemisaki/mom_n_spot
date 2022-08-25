@@ -3,9 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.Home.as_view(), name="home"),
-    # path('/upload', )
+    path('posts/',views.PostList.as_view(), name="post_list"),
+    # path('posts/new/',views.PostListCreate.as_view(), name="post_create"),
     # path('accounts/signup/', views.Signup.as_view(), name="signup"),
-    # path('momnpops/', views.MomNPopsList.as_view(), name="momnpops_list"),
 ]
 
 #/

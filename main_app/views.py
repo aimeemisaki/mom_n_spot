@@ -16,19 +16,20 @@ class Home(View):
         return HttpResponse("Mom n Spot Home Page")
 
 
-# # Signup view
-# class Signup(View):
-#     def get(self, request):
-#         form = UserCreationForm()
-#         context = {"form": form}
-#         return render(request, "registration/signup.html", context)
+# Signup view
+class Signup(View):
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
         
-#     def post(self, request):
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect("mom_n_pops_list")
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return HttpResponse("signed up")
+            # return redirect("mom_n_pops_list")
 
 
 
