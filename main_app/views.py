@@ -44,7 +44,15 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
-# uploading image to form
+
+
+class PostCreate(CreateView):
+    model = Post
+    fields = ('shop_name', 'address', 'neighborhood', 'story', 'category')
+    success_url = 'post_list'
+    template_name = 'post_create.html'
+
+# uploading image function based view to PostCreate
 def upload(request):
     context = {}
     if request.method == 'POST':
@@ -54,11 +62,15 @@ def upload(request):
         context['url'] = fs.url(name)
     return render(request, 'upload.html', context)
 
-class PostCreate(CreateView):
-    model = Post
-    fields = ('shop_name', 'address', 'neighborhood', 'story', 'category', 'img')
-    success_url = 'post_list'
-    template_name = 'upload.html'
+
+
+
+
+
+
+
+
+
 
 # # Post detail view
 # class PostDetail(DetailView):

@@ -16,7 +16,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.shop_name
+        return self.shop_name, self.img, self.story, self.neighborhood, self.address, self.user
     
     def get_absolute_url(self):
         return reverse('posts:detail', args=[self.id])
