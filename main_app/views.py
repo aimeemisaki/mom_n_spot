@@ -13,9 +13,12 @@ from django.utils.decorators import method_decorator
 
 # Home view
 @method_decorator(login_required, name='dispatch')
-class Home(View):
-    def get(self, request):
-        return HttpResponse("Mom n Spot Home Page")
+class Home(TemplateView):
+    template_name = "base.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = Post.objects.all()
+        return context
 
 
 # Post List view
