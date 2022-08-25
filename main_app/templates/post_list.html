@@ -1,20 +1,48 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
 <h1 class="title">{{header}}</h1>
 
-<form class="mb-5" method="get">
+<div class="mb-5" method="get">
+  <div class="detail__img">
+      <img src="{{post.img}}" alt="{{post.shop_name}}" />
+  </div>
+  <div class="detail__name">
+      <h1 class="title">{{post.shop_name}}</h1>
+  </div>
+  <div class="detail__container">
+      <!-- inside container -->
+      <div class="detail__songs mb-5">
+          <h3 class="title is-3">Mom n Spots</h3>
+          {% for post in posts %}
+          <div class="songs">
+              <span>{{forloop.counter}}</span>
+                  <span><b>{{post.shop_name}}</b></span>
+                  <img src={{post.img}}/>
+                  <span>{{post.story}}</span>
+                  <span>{{post.neighborhood}}</span>
+                  <span>{{post.address}}</span>
+          {% empty %}
+            <span>Sorry, no athletes in this list.</span>
+          {% endfor %}
+              <!-- <span>{{song.get_length}}</span> -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- <form class="mb-5" method="get">
   <div class="field has-addons">
     <div class="control">
-      <!--  Our input will search by name of artist  -->
-      <input class="input" type="text" name="name" placeholder="name" />
+      Our input will search by name of artist  -->
+      <!-- <input class="input" type="text" name="name" placeholder="name" />
     </div>
     <div class="control">
       <input class="button is-success" type="submit" value="Search" />
     </div>
   </div>
-  <!--  This anchor tag will redirect back to artist list without a query param -->
+  This anchor tag will redirect back to artist list without a query param
   <a class="button is-dark" href="{% url 'post_list' %}">Clear Search</a>
-</form>
+</form> -->
 <!-- <div class="gallery">
   {% for artist in artists %}
   <a href="{% url 'post_detail' post.pk %}">
@@ -29,7 +57,7 @@
       </div>
     </div> -->
   </a>
-  {% endfor %}
+ 
 </div>
 <a class="button is-dark" href="{% url 'post_create' %}">Add a new Mom n Spot</a>
 {% endblock %}
