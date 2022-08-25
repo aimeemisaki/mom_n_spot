@@ -15,7 +15,7 @@
       <div class="detail__songs mb-5">
           <h3 class="title is-3">Mom n Spots</h3>
           {% for post in posts %}
-          <div class="songs">
+          <div class="posts">
               <span>{{forloop.counter}}</span>
                   <span><b>{{post.shop_name}}</b></span>
                   <img src={{post.img}}/>
@@ -27,37 +27,8 @@
           {% endfor %}
               <!-- <span>{{song.get_length}}</span> -->
           </div>
+          <a class="button is-dark" href="{% url 'post_create' %}">Add a new Mom n Spot</a>
       </div>
   </div>
 </div>
-<!-- <form class="mb-5" method="get">
-  <div class="field has-addons">
-    <div class="control">
-      Our input will search by name of artist  -->
-      <!-- <input class="input" type="text" name="name" placeholder="name" />
-    </div>
-    <div class="control">
-      <input class="button is-success" type="submit" value="Search" />
-    </div>
-  </div>
-  This anchor tag will redirect back to artist list without a query param
-  <a class="button is-dark" href="{% url 'post_list' %}">Clear Search</a>
-</form> -->
-<!-- <div class="gallery">
-  {% for artist in artists %}
-  <a href="{% url 'post_detail' post.pk %}">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-square">
-          <img src="{{post.img}}" alt="{{post.name}}" />
-        </figure>
-      </div>
-      <div class="card-header">
-        <p class="card-header-title">{{post.name}}</p>
-      </div>
-    </div> -->
-  </a>
- 
-</div>
-<a class="button is-dark" href="{% url 'post_create' %}">Add a new Mom n Spot</a>
 {% endblock %}
