@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     shop_name = models.CharField(max_length=200)
-    img = models.ImageField(upload_to='images/')
+    img = models.ImageField()
     story = models.TextField(max_length=600)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=150)

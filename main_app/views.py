@@ -1,17 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import DetailView
-from django import forms
-from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, DetailView
+from django.urls import reverse_lazy
+from .forms import PostForm
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.core.files.storage import FileSystemStorage
+
+
+
 
 # Home view
 @method_decorator(login_required, name='dispatch')
@@ -22,8 +21,8 @@ class Home(TemplateView):
         context["posts"] = Post.objects.all()
         return context
 
-def upload(request):
-    return render(request, 'upload.html')
+# def upload(request):
+#     return render(request, 'upload.html')
 
 class Signup(View):
     def get(self, request):
@@ -42,7 +41,7 @@ class Signup(View):
             return render(request, "registration/signup.html", context)
 
 # Post List view
-
+@method_decorator(login_required, name='dispatch')
 class PostList(TemplateView):
     template_name = "post_list.html"
 
@@ -59,34 +58,22 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
-@method_decorator(login_required, name='dispatch')
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = ['shop_name', 'img', 'story', 'category', 'neighborhood', 'address']
 
-def post_create(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-
-        if form.is_valid():
-            form.save()
-            return redirect('post_list')
-    else:
-        form = PostForm()
-    return render(request, 'post_form.html', {'form': form})
+class PostCreate(CreateView):
+    model = Post
+    form_class = PostForm
+    success_url = reverse_lazy('post_create')
+    template_name = 'post_create.html'
 
 
 
 
 
-# class PostCreate(CreateView):
-#     model = Post
-#     fields = ('shop_name', 'address', 'neighborhood', 'story', 'category')
-#     success_url = 'post_list'
-#     template_name = 'post_create.html'
+
+
 
 # # uploading image function based view to PostCreate
+
 # def upload(request):
 #     context = {}
 #     if request.method == 'POST':

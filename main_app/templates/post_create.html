@@ -1,16 +1,14 @@
 {% extends 'base.html' %} 
 {% block content %}
-<h1>Add a Post</h1>
+<h1>Post a Mom N Spot!</h1>
 
-<form method='post'>
-<!-- Security Feature  -->
-<!-- cross site request forgery-->
-  {% csrf_token %} 
-<!--  Generate inputs  -->
-  {{form.as_p}} 
-<!--  Submit form  -->
-  {% block content %}{% endblock%}
-  <input type="submit" value="Submit" />
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+    {{ form.as_p }} 
+<button type="submit">UPLOAD</button>
 </form>
 
-{% endblock %}
+{%endblock%}
+
+
+  
