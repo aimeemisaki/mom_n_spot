@@ -21,8 +21,6 @@ class Home(TemplateView):
         context["posts"] = Post.objects.all()
         return context
 
-# def upload(request):
-#     return render(request, 'upload.html')
 
 class Signup(View):
     def get(self, request):
@@ -64,6 +62,17 @@ class PostCreate(CreateView):
     form_class = PostForm
     success_url = reverse_lazy('post_create')
     template_name = 'post_create.html'
+
+def UploadImg(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('post_list')
+    else:
+        form = PostForm
+    return render(request, 'post_create.html', { 'form': form })
+
 
 
 

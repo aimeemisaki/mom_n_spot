@@ -1,13 +1,15 @@
 from xmlrpc.client import DateTime
 from django.db import models
-import time
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
+
 # Create your models here.
 
 class Post(models.Model):
     shop_name = models.CharField(max_length=200)
-    img = models.ImageField()
+    img = models.FileField(upload_to="images/",
+        validators=[FileExtensionValidator(['pdf', 'png', 'jpg', 'svg'])])
     story = models.TextField(max_length=600)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=150)
