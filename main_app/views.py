@@ -6,7 +6,7 @@ from django.views.generic import DetailView
 from django import forms
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Post, Tags
+from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -25,9 +25,24 @@ class Home(TemplateView):
 def upload(request):
     return render(request, 'upload.html')
 
+class Signup(View):
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+        
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("post_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
 
 # Post List view
-@method_decorator(login_required, name='dispatch')
+
 class PostList(TemplateView):
     template_name = "post_list.html"
 
@@ -44,23 +59,42 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
+@method_decorator(login_required, name='dispatch')
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['shop_name', 'img', 'story', 'category', 'neighborhood', 'address']
 
-
-class PostCreate(CreateView):
-    model = Post
-    fields = ('shop_name', 'address', 'neighborhood', 'story', 'category')
-    success_url = 'post_list'
-    template_name = 'post_create.html'
-
-# uploading image function based view to PostCreate
-def upload(request):
-    context = {}
+def post_create(request):
     if request.method == 'POST':
-        uploaded_file = request.FILES('img')
-        fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-    return render(request, 'upload.html', context)
+        form = PostForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('post_list')
+    else:
+        form = PostForm()
+    return render(request, 'post_form.html', {'form': form})
+
+
+
+
+
+# class PostCreate(CreateView):
+#     model = Post
+#     fields = ('shop_name', 'address', 'neighborhood', 'story', 'category')
+#     success_url = 'post_list'
+#     template_name = 'post_create.html'
+
+# # uploading image function based view to PostCreate
+# def upload(request):
+#     context = {}
+#     if request.method == 'POST':
+#         uploaded_file = request.FILES('img')
+#         fs = FileSystemStorage()
+#         name = fs.save(uploaded_file.name, uploaded_file)
+#         context['url'] = fs.url(name)
+#     return render(request, 'upload.html', context)
 
 
 
@@ -137,18 +171,7 @@ def upload(request):
 #         Song.objects.create(title=title, length=length, artist=artist)
 
 # Signup view
-class Signup(View):
-    def get(self, request):
-        form = UserCreationForm()
-        context = {"form": form}
-        return render(request, "registration/signup.html", context)
-        
-    def post(self, request):
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return HttpResponse("signed up")
+
             # return redirect("mom_n_pops_list")
 
 

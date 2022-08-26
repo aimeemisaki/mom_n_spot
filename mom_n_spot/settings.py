@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'momnspot',
+        'NAME': 'mom-n-spot',
     }
 }
 
