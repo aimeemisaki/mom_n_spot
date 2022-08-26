@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include 
 from django.conf import settings
 from django.conf.urls.static import static
-from main_app.views import UploadImg
+from main_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_app.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('image_upload', UploadImg, name = 'image_upload'),
+    path('uploadtest/', views.uploadtest, name='uploadtest'),
+    # path('image_upload', UploadImg, name = 'image_upload'),
 ] 
 
 if settings.DEBUG:

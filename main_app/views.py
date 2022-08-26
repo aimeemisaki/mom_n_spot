@@ -56,22 +56,30 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
-
-class PostCreate(CreateView):
-    model = Post
-    form_class = PostForm
-    success_url = reverse_lazy('post_create')
-    template_name = 'post_create.html'
-
-def UploadImg(request):
+def uploadtest(request):
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('post_list')
-    else:
-        form = PostForm
-    return render(request, 'post_create.html', { 'form': form })
+        uploaded_file = request.FILES['document']
+    return render(request, 'uploadtest.html')
+
+# uploaded_file.name
+
+
+
+# class PostCreate(CreateView):
+#     model = Post
+#     form_class = PostForm
+#     success_url = reverse_lazy('post_create')
+#     template_name = 'post_create.html'
+
+# def UploadImg(request):
+#     if request.method == 'POST':
+#         form = PostForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('post_list')
+#     else:
+#         form = PostForm
+#     return render(request, 'post_create.html', { 'form': form })
 
 
 
