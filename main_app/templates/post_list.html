@@ -4,9 +4,38 @@
 
 <h1 class="title">{{header}}</h1>
 
-<div class="mb-5" method="get">
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" type="text" name="shop_name" placeholder="Name of Shop" />
+        </div>
+        <div class="control">
+            <input class="button is-success" type="submit" value="Search" />
+        </div>
+    </div>
+    <a class="button is-dark" href="{% url 'post_list' %}">Return To All Mom N Spots</a>
+</form>
+<div class="gallery">
+    {% for post in posts %}
+    <a href="{% url 'post_detail' post.pk %}">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-square">
+                    <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
+                </figure>
+            </div>
+            <div class="card-header">
+                <p class="card-header-title">{{post.shop_name}}</p>
+            </div>
+        </div>
+    </a> 
+    {% endfor %}
+</div>
+<a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>
+{% endblock %}
+
   <div class="detail__img">
-      <img src="{{post.img}}" alt="{{post.shop_name}}" />
+      <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
   </div>
   <div class="detail__name">
       <h1 class="title">{{post.shop_name}}</h1>
@@ -32,4 +61,4 @@
       </div>
   </div>
 </div>
-{% endblock %}
+
