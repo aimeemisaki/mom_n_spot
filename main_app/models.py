@@ -11,6 +11,7 @@ category_choices = [
     ('restaurant', 'Restaurant'),
     ('apparel', 'Apparel'),
     ('art supplies', 'Art Supplies'),
+    ('beauty supplies', 'Beauty Supplies'),
     ('bookshop', 'Bookshops'),
     ('drug store', 'Drug Store'),
     ('grocery store', 'Grocery Store'),
