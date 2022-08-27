@@ -70,14 +70,8 @@ class PostCreate(CreateView):
         context['posts'] = posts
         return context
 
-
-# # uploading image function based view to PostCreate
-
-# def upload(request):
-#     context = {}
-#     if request.method == 'POST':
-#         uploaded_file = request.FILES('img')
-#         fs = FileSystemStorage()
-#         name = fs.save(uploaded_file.name, uploaded_file)
-#         context['url'] = fs.url(name)
-#     return render(request, 'upload.html', context)
+# Delete PostDelete View
+class PostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete.html"
+    success_url = "posts/"
