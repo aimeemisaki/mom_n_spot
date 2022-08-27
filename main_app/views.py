@@ -64,6 +64,12 @@ class PostCreate(CreateView):
     success_url = reverse_lazy('post_create')
     template_name = 'post_create.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        posts = Post.objects.all()
+        context['posts'] = posts
+        return context
+
 
 # # uploading image function based view to PostCreate
 
