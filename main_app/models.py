@@ -58,4 +58,4 @@ class Tags(models.Model):
     posts = models.ManyToManyField(Post)
 
     def __str__(self):
-        return self.title, self.posts
+        return self.title

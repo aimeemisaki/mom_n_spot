@@ -57,6 +57,16 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
+# Detail PostDetail View
+class PostDetail(DetailView):
+    model = Post
+    template_name = "post_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tags"] = Tags.objects.all()
+        return context 
+
 # Create PostCreate View 
 class PostCreate(CreateView):
     model = Post
@@ -69,6 +79,7 @@ class PostCreate(CreateView):
         posts = Post.objects.all()
         context['posts'] = posts
         return context
+
 
 # Delete PostDelete View
 class PostDelete(DeleteView):
