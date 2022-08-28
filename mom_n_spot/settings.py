@@ -97,7 +97,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
+WSGI_APPLICATION = 'momnspot.wsgi.application'
 
 
 # Database
