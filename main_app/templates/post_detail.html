@@ -53,99 +53,29 @@
                 </article>
             {% endfor %}
         </div>
-
-    </div>
-</div>
-    <!-- <span>
-        <div class="dropdown">
-        <div class="dropdown-trigger">
-            <button
-            class="button"
-            aria-haspopup="true"
-            aria-controls="dropdown-menu"
-            >
-            <span>Add to Tags</span>
-            <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
+        <form class="mb-5" action="{% url 'post_create' %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                    class="input"
+                    type="text"
+                    name="title"
+                    placeholder="Tag Name"
+                    required
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Mom n Spot" />
+                </div>
+            </div>
+        </form>
+        
+        <a href="{% url 'post_delete' post.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
             </span>
-            </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-            {% for playlist in playlists %}
-            <--  each playlist becomes a drop
-        down item with the ids needed to add to the join table  -->
-            <!-- <a
-                href="{% url 'playlist_song_assoc' playlist.pk song.pk %}?assoc=add"
-                class="dropdown-item"
-            >
-                {{playlist.title}}
-            </a>
-            {% endfor %}
-            </div>
-        </div>
-        </div>
-    </span>
-
-    {% empty %}
-        <article class="message">
-            <div class="message-header">
-                <p>No Songs Available</p>
-            </div>
-        </article>
-
-    {% endfor %}
-</div> -->
-<!-- inside detail songs element below the header -->
-
-<!-- Here you can see the action we provided
-    is to the song_create route with the artist pk -->
-<!-- <form class="mb-5" action="{% url 'song_create' artist.pk %}" method="post">
-    {% csrf_token %}
-    <div class="field has-addons">
-    <div class="control">
-        <input
-        class="input"
-        type="text"
-        name="title"
-        placeholder="Title"
-        required
-        />
+        </a>
     </div>
-    <div class="control">
-        <input
-        class="input"
-        type="number"
-        name="length"
-        placeholder="Length in Seconds"
-        min="1"
-        required
-        />
-    </div>
-    <div class="control">
-        <input class="button is-primary" type="submit" value="Add Song" />
-    </div>
-    </div>
-</form> -->
-
-<!-- before the for loop for songs -->
-
-<!--  above about section  -->
-<!-- <a href="{% url 'artist_update' artist.pk %}" class="button is-info">
-    <span class="icon">
-        <i class="fas fa-edit"></i>
-    </span>
-    </a>
-<a href="{% url 'artist_delete' artist.pk %}" class="button is-danger">
-    <span class="icon">
-    <i class="fas fa-trash-alt"></i>
-    </span>
-</a>
 </div>
-<div class="detail__about">
-<h4 class="title is-4">About</h4>
-<p>{{artist.bio}}</p>
-</div>
-</div> -->
-
 {% endblock %}
