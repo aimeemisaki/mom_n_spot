@@ -1,113 +1,86 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+
+{% block title %}
+- Details
+{% endblock title %}
+
 {% block content %}
 <div class="detail__img">
-    <img src="{{post.img}}" alt="{{post.shop_name}}" />
+    <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
 </div>
 <div class="detail__name">
     <h1 class="title">{{post.shop_name}}</h1>
+    <span>{{post.story}}</span>
+    <span>{{post.neighborhood}}</span>
 </div>
-<div class="detail__container">
-    <!-- inside container -->
-    <div class="detail__songs mb-5">
-        <h3 class="title is-3">Mom n Spots</h3>
-        {% for post in posts %}
-        <div class="songs">
-            <span>{{forloop.counter}}</span>
-                <span><b>{{post.shop_name}}</b></span>
-            <!-- <span>{{song.get_length}}</span> -->
-        </div>
-    </div>
-</div>
-    <!-- <span>
-        <div class="dropdown">
-        <div class="dropdown-trigger">
-            <button
-            class="button"
-            aria-haspopup="true"
-            aria-controls="dropdown-menu"
-            >
-            <span>Add to Tags</span>
-            <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
+    <div>
+        <!-- inside container -->
+        <div class="mb-5">
+            {% for post in posts %}
+            <div class="posts">
+                <span>{{forloop.counter}}</span>
+                    <span><b>{{post.shop_name}}</b></span>
+                    <img src="{{post.img.url}}" /> || <embed src="{{post.img.url}}"> 
+                    
+            </div>
+            <span>
+                <div class="dropdown">
+                    <div class="dropdown-trigger">
+                        <button
+                            class="button"
+                            aria-haspopup="true"
+                            aria-controls="dropdown-menu">
+                            <span>Add To Tags</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            {% for tag in tags %}
+                            <a
+                                href="{% url 'tag_post_assoc' tag.pk post.pk %}?assoc=add"
+                                class="dropdown-item">
+                            {{tag.title}}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </span>
-            </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-            {% for playlist in playlists %}
-            <--  each playlist becomes a drop
-        down item with the ids needed to add to the join table  -->
-            <!-- <a
-                href="{% url 'playlist_song_assoc' playlist.pk song.pk %}?assoc=add"
-                class="dropdown-item"
-            >
-                {{playlist.title}}
-            </a>
+            {% empty %}
+                <!-- <article class="message">
+                    <div class="message-header">
+                        <p>Oh no, you haven't posted any Mom n Spots!</p>
+                    </div>
+                </article> -->
             {% endfor %}
-            </div>
         </div>
-        </div>
-    </span>
-
-    {% empty %}
-        <article class="message">
-            <div class="message-header">
-                <p>No Songs Available</p>
+        <!-- <form class="mb-5" action="{% url 'post_create' %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                    class="input"
+                    type="text"
+                    name="title"
+                    placeholder="Tag Name"
+                    required
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Mom n Spot" />
+                </div>
             </div>
-        </article>
-
-    {% endfor %}
-</div> -->
-<!-- inside detail songs element below the header -->
-
-<!-- Here you can see the action we provided
-    is to the song_create route with the artist pk -->
-<!-- <form class="mb-5" action="{% url 'song_create' artist.pk %}" method="post">
-    {% csrf_token %}
-    <div class="field has-addons">
-    <div class="control">
-        <input
-        class="input"
-        type="text"
-        name="title"
-        placeholder="Title"
-        required
-        />
+        </form>
+        
+        <a href="{% url 'post_delete' post.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a> -->
     </div>
-    <div class="control">
-        <input
-        class="input"
-        type="number"
-        name="length"
-        placeholder="Length in Seconds"
-        min="1"
-        required
-        />
-    </div>
-    <div class="control">
-        <input class="button is-primary" type="submit" value="Add Song" />
-    </div>
-    </div>
-</form> -->
-
-<!-- before the for loop for songs -->
-
-<!--  above about section  -->
-<!-- <a href="{% url 'artist_update' artist.pk %}" class="button is-info">
-    <span class="icon">
-        <i class="fas fa-edit"></i>
-    </span>
-    </a>
-<a href="{% url 'artist_delete' artist.pk %}" class="button is-danger">
-    <span class="icon">
-    <i class="fas fa-trash-alt"></i>
-    </span>
-</a>
 </div>
-<div class="detail__about">
-<h4 class="title is-4">About</h4>
-<p>{{artist.bio}}</p>
-</div>
-</div> -->
-
 {% endblock %}

@@ -1,35 +1,48 @@
 {% extends 'base.html' %}
 {% include 'navbar.html' %}
+
+{% block title %}
+- My List
+{% endblock title %}
+
 {% block content %}
 
 <h1 class="title">{{header}}</h1>
 
-<div class="mb-5" method="get">
-  <div class="detail__img">
-      <img src="{{post.img}}" alt="{{post.shop_name}}" />
-  </div>
-  <div class="detail__name">
-      <h1 class="title">{{post.shop_name}}</h1>
-  </div>
-  <div class="detail__container">
-      <!-- inside container -->
-      <div class="detail__songs mb-5">
-          <h3 class="title is-3">Mom n Spots</h3>
-          {% for post in posts %}
-          <div class="posts">
-              <span>{{forloop.counter}}</span>
-                  <span><b>{{post.shop_name}}</b></span>
-                  <img src={{post.img.url}}/> || <embed src="{{post.img.url}}"> 
-                  <span>{{post.story}}</span>
-                  <span>{{post.neighborhood}}</span>
-                  <span>{{post.address}}</span>
-          {% empty %}
-            <span>Sorry, you still haven't found any Mom n Spots!</span>
-          {% endfor %}
-              <span>{{song.get_length}}</span>
-          </div>
-          <a class="button is-dark" href="{% url 'post_create' %}">Add a new Mom n Spot</a>
-      </div>
-  </div>
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" type="text" name="shop_name" placeholder="Name of Shop" />
+        </div>
+        <div class="control">
+            <input class="button is-success" type="submit" value="Search" />
+        </div>
+    </div>
+    <a class="button is-dark" href="{% url 'post_list' %}">Return To All Mom N Spots</a>
+</form>
+<div class="gallery">
+    {% for post in posts %}
+    <a href="{% url 'post_detail' post.pk %}">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-square">
+                    <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
+                </figure>
+            </div>
+            <div class="card-header">
+                <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
+            </div>
+            <div class="card-body">
+                <p>{{post.story}}</p>
+            </div>
+            <div class="card-footer">
+                <p>Posted by Mom n Spotter: {{user.username}}</p>
+            </div>
+        </div>
+    </a> 
+    {% endfor %}
 </div>
+<a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>
 {% endblock %}
+
+
