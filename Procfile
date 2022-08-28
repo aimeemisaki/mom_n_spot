@@ -1,1 +1,1 @@
-web: gunicorn mom_n_spot.wsgi
+web: gunicorn momnspot.wsgi
