@@ -34,31 +34,4 @@
 <a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>
 {% endblock %}
 
-  <div class="detail__img">
-      <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
-  </div>
-  <div class="detail__name">
-      <h1 class="title">{{post.shop_name}}</h1>
-  </div>
-  <div class="detail__container">
-      <!-- inside container -->
-      <div class="detail__songs mb-5">
-          <h3 class="title is-3">Mom n Spots</h3>
-          {% for post in posts %}
-          <div class="posts">
-              <span>{{forloop.counter}}</span>
-                  <span><b>{{post.shop_name}}</b></span>
-                  <img src={{post.img.url}}/> || <embed src="{{post.img.url}}"> 
-                  <span>{{post.story}}</span>
-                  <span>{{post.neighborhood}}</span>
-                  <span>{{post.address}}</span>
-          {% empty %}
-            <span>Sorry, you still haven't found any Mom n Spots!</span>
-          {% endfor %}
-              <span>{{song.get_length}}</span>
-          </div>
-          <a class="button is-dark" href="{% url 'post_create' %}">Add a new Mom n Spot</a>
-      </div>
-  </div>
-</div>
 

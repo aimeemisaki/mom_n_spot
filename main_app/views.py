@@ -86,3 +86,5 @@ class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete.html"
     success_url = "posts/"
+
+# 
