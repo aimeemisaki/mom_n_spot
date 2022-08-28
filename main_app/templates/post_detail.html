@@ -1,4 +1,10 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+
+{% block title %}
+- Details
+{% endblock title %}
+
 {% block content %}
 <div class="detail__img">
     <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
