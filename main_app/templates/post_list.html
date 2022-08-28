@@ -30,7 +30,13 @@
                 </figure>
             </div>
             <div class="card-header">
-                <p class="card-header-title">{{post.shop_name}}</p>
+                <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
+            </div>
+            <div class="card-body">
+                <p>{{post.story}}</p>
+            </div>
+            <div class="card-footer">
+                <p>Posted by Mom n Spotter: {{user.username}}</p>
             </div>
         </div>
     </a> 

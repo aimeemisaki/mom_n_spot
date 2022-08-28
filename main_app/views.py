@@ -57,7 +57,25 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
+# PostList View (Index for All without user logged in)
+class PostListAll(TemplateView):
+    template_name = "post_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        shop_name = self.request.GET.get("shop_name")
+        if shop_name != None:
+            context["posts"] = Post.objects.all()
+        # We add a header context that includes the search param
+            context["header"] = f"Searching for {shop_name}"
+        
+        else:
+            context["posts"] = Post.objects.all()
+            context["header"] = "Everyone's Mom n Spots"
+        return context
+
 # Detail PostDetail View
+@method_decorator(login_required, name='dispatch')
 class PostDetail(DetailView):
     model = Post
     template_name = "post_detail.html"
@@ -67,7 +85,9 @@ class PostDetail(DetailView):
         context["tags"] = Tag.objects.all()
         return context 
 
+
 # Create PostCreate View 
+@method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
     model = Post
     form_class = PostForm
@@ -82,12 +102,14 @@ class PostCreate(CreateView):
 
 
 # Delete PostDelete View
+@method_decorator(login_required, name='dispatch')
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete.html"
     success_url = reverse_lazy('post_list')
 
 # TagPostAssoc function view
+@method_decorator(login_required, name='dispatch')
 class TagPostAssoc(View):
     def get(self, request, pk, post_pk):
         assoc = request.GET.get("assoc")
