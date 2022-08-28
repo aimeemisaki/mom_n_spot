@@ -36,7 +36,7 @@ neighborhood_choices = [
 class Post(models.Model):
     shop_name = models.CharField(max_length=200)
     img = models.FileField(
-        validators=[FileExtensionValidator(['pdf', 'png', 'jpg', 'svg', 'heic'])])
+        validators=[FileExtensionValidator(['pdf', 'png', 'jpg', 'jpeg', 'webp', 'svg', 'heic'])])
     story = models.TextField(max_length=600)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=150, choices=category_choices)

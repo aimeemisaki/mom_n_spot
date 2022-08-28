@@ -71,7 +71,7 @@ class PostDetail(DetailView):
 class PostCreate(CreateView):
     model = Post
     form_class = PostForm
-    success_url = reverse_lazy('post_create')
+    success_url = reverse_lazy('post_list')
     template_name = 'post_create.html'
 
     def get_context_data(self, **kwargs):
@@ -85,7 +85,7 @@ class PostCreate(CreateView):
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete.html"
-    success_url = "posts/"
+    success_url = reverse_lazy('post_list')
 
 # TagPostAssoc function view
 class TagPostAssoc(View):
