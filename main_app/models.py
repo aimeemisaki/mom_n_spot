@@ -7,31 +7,30 @@ from django.core.validators import FileExtensionValidator
 # Create your models here.
 # Category Choices
 category_choices = [
-    ('deli', 'Deli'),
-    ('restaurant', 'Restaurant'),
-    ('apparel', 'Apparel'),
-    ('art supplies', 'Art Supplies'),
-    ('beauty supplies', 'Beauty Supplies'),
-    ('bookshop', 'Bookshops'),
-    ('drug store', 'Drug Store'),
-    ('grocery store', 'Grocery Store'),
-    ('plant nursery', 'Plant Nursery'),
-    ('children boutiques', 'Children Boutiques'),
-    ('other', 'Other')
+    ('Deli', 'deli'),
+    ('Restaurant', 'restaurant'),
+    ('Apparel', 'apparel'),
+    ('Art Supplies', 'art supplies'),
+    ('Beauty Supplies', 'beauty supplies'),
+    ('Bookshop','bookshop'),
+    ('Drug Store', 'drug store'),
+    ('Grocery Store', 'grocery store'),
+    ('Plant Nursery','plant nursery'),
+    ('Children Boutique', 'children boutiques'),
+    ('Other', 'other'),
 ]
 
 neighborhood_choices = [
-    ('east northeast', 'East and Northeast LA'),
-    ('downtown', 'Downtown LA'),
-    ('echopark westlake', 'Echo Park and Westlake'),
-    ('hollywood', 'Hollywood'),
-    ('harbor area', 'Harbor Area'),
-    ('los feliz silverlake', 'Los Feliz and Silverlake'),
-    ('south central', 'South Central'),
-    ('sfv', 'San Fernando Valley'),
-    ('west', 'West LA'),
-    ('wilshire', 'Wilshire'),
-
+    ('East and Northeast LA', 'east northeast'),
+    ('Downtown LA', 'downtown'),
+    ('Echo Park and Westlake', 'echopark westlake'),
+    ('Hollywood', 'hollywood'),
+    ('Harbor Area', 'harbor area'),
+    ('Los Feliz and Silverlake', 'los feliz silverlake'),
+    ( 'South Central', 'south central'),
+    ('San Fernando Valley', 'sfv'),
+    ('West LA', 'west'),
+    ('Wilshire', 'wilshire'),
 ]
 
 class Post(models.Model):
@@ -42,7 +41,6 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=150, choices=category_choices)
     neighborhood = models.CharField(max_length=150, choices=neighborhood_choices)
-    address = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
