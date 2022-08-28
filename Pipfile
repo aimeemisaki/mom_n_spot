@@ -12,6 +12,7 @@ python-dotenv = "*"
 pillow = "*"
 boto3 = "*"
 django-storages = "*"
+django-tailwind = "*"
 
 [dev-packages]
 
