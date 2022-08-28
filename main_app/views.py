@@ -64,7 +64,7 @@ class PostDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["tags"] = Tags.objects.all()
+        context["tags"] = Tag.objects.all()
         return context 
 
 # Create PostCreate View 
@@ -87,4 +87,12 @@ class PostDelete(DeleteView):
     template_name = "post_delete.html"
     success_url = "posts/"
 
-# 
+# TagPostAssoc function view
+class TagPostAssoc(View):
+    def get(self, request, pk, post_pk):
+        assoc = request.GET.get("assoc")
+        if assoc == "remove":
+            Tag.objects.get(pk=pk).posts.remove(post_pk)
+        elif assoc == "add":
+            Tag.objects.get(pk=pk).posts.add(post_pk)
+        return redirect('post_list')

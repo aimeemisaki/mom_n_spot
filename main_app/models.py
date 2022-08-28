@@ -53,7 +53,7 @@ class Post(models.Model):
     class Meta:
         ordering = ['shop_name']
 
-class Tags(models.Model):
+class Tag(models.Model):
     title = models.CharField(max_length=150)
     posts = models.ManyToManyField(Post)
 
