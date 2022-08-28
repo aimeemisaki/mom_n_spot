@@ -7,30 +7,30 @@ from django.core.validators import FileExtensionValidator
 # Create your models here.
 # Category Choices
 category_choices = [
-    ('Deli', 'deli'),
-    ('Restaurant', 'restaurant'),
-    ('Apparel', 'apparel'),
-    ('Art Supplies', 'art supplies'),
-    ('Beauty Supplies', 'beauty supplies'),
-    ('Bookshop','bookshop'),
-    ('Drug Store', 'drug store'),
-    ('Grocery Store', 'grocery store'),
-    ('Plant Nursery','plant nursery'),
-    ('Children Boutique', 'children boutiques'),
-    ('Other', 'other'),
+    ('Deli', 'Deli'),
+    ('Restaurant', 'Restaurant'),
+    ('Apparel', 'Apparel'),
+    ('Art Supplies', 'Art Supplies'),
+    ('Beauty Supplies', 'Beauty Supplies'),
+    ('Bookshop','Bookshop'),
+    ('Drug Store', 'Drug Store'),
+    ('Grocery Store', 'Grocery Store'),
+    ('Plant Nursery','Plant Nursery'),
+    ('Children Boutique', 'Children Boutique'),
+    ('Other', 'Other'),
 ]
 
 neighborhood_choices = [
-    ('East and Northeast LA', 'east northeast'),
-    ('Downtown LA', 'downtown'),
-    ('Echo Park and Westlake', 'echopark westlake'),
-    ('Hollywood', 'hollywood'),
-    ('Harbor Area', 'harbor area'),
-    ('Los Feliz and Silverlake', 'los feliz silverlake'),
-    ( 'South Central', 'south central'),
-    ('San Fernando Valley', 'sfv'),
-    ('West LA', 'west'),
-    ('Wilshire', 'wilshire'),
+    ('East and Northeast LA', 'East and Northeast LA'),
+    ('Downtown LA', 'Downtown LA'),
+    ('Echo Park and Westlake', 'Echo Park and Westlake'),
+    ('Hollywood', 'Hollywood'),
+    ('Harbor Area', 'Harbor Area'),
+    ('Los Feliz and Silverlake', 'Los Feliz and Silverlake'),
+    ('South Central', 'South Central'),
+    ('San Fernando Valley', 'San Fernando Valley'),
+    ('West LA', 'West LA'),
+    ('Wilshire', 'Wilshire'),
 ]
 
 class Post(models.Model):
@@ -39,8 +39,8 @@ class Post(models.Model):
         validators=[FileExtensionValidator(['pdf', 'png', 'jpg', 'jpeg', 'webp', 'svg', 'heic'])])
     story = models.TextField(max_length=600)
     created_at = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(max_length=150, choices=category_choices)
-    neighborhood = models.CharField(max_length=150, choices=neighborhood_choices)
+    category = models.CharField(max_length=250, choices=category_choices)
+    neighborhood = models.CharField(max_length=250, choices=neighborhood_choices)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
