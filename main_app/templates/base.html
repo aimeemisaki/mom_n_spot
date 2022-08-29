@@ -4,9 +4,81 @@
 
 
 <div>
-    <body >
-        {% block content %}
+    <section class="hero is-primary is-medium">
+        <div class="hero-head">
+            <div class="container">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
+                            <img src="../images/navLogo.png" alt="LOGO"/>
+                        </a>
+                        <span class="navbar-burger" data-target="navbarMenuHeroA" aria-label="menu">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="navbar-menu" id="navbarMenuHeroA">
+                            <div class="navbar-item">
+                                Welcome {{user.username}}!
+                            </div>
+                            <a class="navbar-item" href="{% url 'post_create' %}">
+                                Post A Mom N Spot 
+                            </a>
+                            <a class="navbar-item" href="{% url 'logout' %}">
+                                Logout
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="navbar-menu" id="navbarMenuHeroA">
+                            <a class="navbar-item" href="{% url 'signup' %}">
+                                Sign Up
+                            </a>
+                            <a class="navbar-item" href="{% url 'login' %}">
+                                Log In
+                            </a>
+                        </div>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                {% block content %}
             
-        {% endblock content %}
-    </body>
+                {% endblock content %}
+            </div>
+        </div>
+
+        <div class="hero-foot">
+            <nav class="tabs is-fullwidth">
+                <div class="container">
+                    <ul>
+                        <li class="is-active">
+                            <a 
+                            class="button is-primary is-inverted" 
+                            href="https://www.linkedin.com/in/aimee-misaki/">
+                                <span class="icon">
+                                  <i class="fab fa-linkedin-in"></i>
+                                </span>
+                                <span>Connect with Creator</span>
+                              </a>
+                        </li>
+                        <li class="is-active">
+                            <a 
+                            class="button is-primary is-inverted" 
+                            href="https://github.com/aimeemisaki/mom_n_spot">
+                                <span class="icon">
+                                  <i class="fab fa-github"></i>
+                                </span>
+                                <span>View Repository</span>
+                              </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
 </div>
