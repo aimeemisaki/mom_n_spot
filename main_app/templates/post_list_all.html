@@ -2,7 +2,7 @@
 {% include 'navbar.html' %}
 
 {% block title %}
-- My List
+- Home
 {% endblock title %}
 
 {% block content %}
@@ -18,7 +18,7 @@
             <input class="button is-success" type="submit" value="Search" />
         </div>
     </div>
-    <a class="button is-dark" href="{% url 'post_list_all' %}">Return To All Mom N Spots</a>
+    <a class="button is-dark" href="{% url 'post_list' %}">Browse Your Mom N Spots</a>
 </form>
 <div class="gallery">
     {% for post in posts %}
@@ -35,14 +35,11 @@
             <div class="card-body">
                 <p>{{post.story}}</p>
             </div>
-            <!-- <div class="card-footer">
+            <div class="card-footer">
                 <p>Posted by Mom n Spotter: {{user.username}}</p>
-            </div> -->
+            </div>
         </div>
     </a> 
     {% endfor %}
 </div>
 <a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>
-{% endblock %}
-
-
