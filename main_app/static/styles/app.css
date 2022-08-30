@@ -90,26 +90,50 @@ p {
 }
 
 .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 30px;
+}
+
+
+/* .gallery {
 display: grid;
 justify-content: center;
 align-items: center;
-}
+} */
 
-.gallery .card {
+.card {
 transition: 0.1s linear;
 width: 400px;
 height: 600px;
-border: 3px solid white;
+border-radius: 15px;
 }
 
-.gallery .card:hover {
+.card:hover {
 transform: scale(1.1);
 z-index: 10;
 }
 
-.gallery .card .card-image {
+.card-image {
     width:400px;
     height:400px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-body {
+    text-align: center;
+    padding: 10px;
+}
+
+.card-footer {
+    text-align: center;
+    padding: 10px;
 }
 
 #browse-button {
@@ -160,29 +184,19 @@ top: 400px;
 margin-top: 500px;
 }
 
-.detail__songs {
-width: 100%;
-display: flex;
-flex-direction: column;
+
+/* post_list styling */
+#my-button {
+    background-color: tomato;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: black;
+    border-radius: 15px;
 }
 
-.song {
-width: 100%;
-padding: 10px;
-display: grid;
-/*  New Template Columns  */
-grid-template-columns: 0.1fr 3fr 0.5fr 0.3fr;
-border-radius: 5px;
+#my-button:hover {
+    color: white;
 }
-
-
-.song:hover {
-background-color: hsla(0, 0%, 100%, 0.1);
-cursor: pointer;
-}
-
-
-
 
 /* create_post styling */
 
