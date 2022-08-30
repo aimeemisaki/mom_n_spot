@@ -20,14 +20,15 @@
     <body>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="{% url 'post_list_all' %}">
-                    <img src="{% static 'images/navLogo.png' %}" alt="LOGO" id="home-logo" />
+                <a 
+                    class="navbar-item" 
+                    href="{% url 'post_list_all' %}">
+                        <img src="{% static 'images/navLogo.png' %}" alt="LOGO" id="home-logo" />
                 </a>
                 <span class="navbar-burger" data-target="navbarMenuHeroC" aria-label="menu">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                </a>
             </div>
             {% if user.is_authenticated %}
                 <div class="navbar-menu">
@@ -37,22 +38,34 @@
                         </div>
                     </div>
                     <div class="navbar-end">
-                        <a class="navbar-item" href="{% url 'post_create' %}">
-                            <p class="md-text">post a mom n spot</p>
+                        <a 
+                            class="navbar-item" h
+                            ref="{% url 'post_create' %}" 
+                            id="nav-link">
+                                <p class="md-text">post a mom n spot</p>
                         </a>
-                        <a class="navbar-item" href="{% url 'logout' %}">
-                            <p class="md-text">logout</p>
+                        <a 
+                            class="navbar-item" 
+                            href="{% url 'logout' %}"
+                            id="nav-link">
+                                <p class="md-text">logout</p>
                         </a>
                     </div>
                 </div>
             {% else %}
                 <div class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item" href="{% url 'signup' %}">
-                            <p class="md-text">sign up</p>
+                        <a 
+                            class="navbar-item"
+                            href="{% url 'signup' %}"
+                            id="nav-link">
+                                <p class="md-text">sign up</p>
                         </a>
-                        <a class="navbar-item" href="{% url 'login' %}">
-                            <p class="md-text">log in</p>
+                        <a 
+                            class="navbar-item" 
+                            href="{% url 'login' %}"
+                            id="nav-link">
+                                <p class="md-text">log in</p>
                         </a>
                     </div>
                 </div>

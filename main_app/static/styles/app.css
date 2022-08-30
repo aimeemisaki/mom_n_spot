@@ -12,6 +12,12 @@ body {
     background-color: #F9D85B;
 }
 
+#nav-link:hover {
+    background-color: #F9D85B;
+    color: white;
+    
+}
+
 #home-logo {
     
 }
