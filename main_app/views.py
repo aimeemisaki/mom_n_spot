@@ -12,15 +12,33 @@ from django.utils.decorators import method_decorator
 
 
 
+# Start Page View
 
-# #Home View
-@method_decorator(login_required, name='dispatch')
+
+# PostList View (Index for All without user logged in)
 class Home(TemplateView):
-    template_name = "base.html"
+    template_name = "post_list_all.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all()
+        shop_name = self.request.GET.get("shop_name")
+        if shop_name != None:
+            context["posts"] = Post.objects.all()
+        # We add a header context that includes the search param
+            context["header"] = f"Searching for {shop_name}"
+        
+        else:
+            context["posts"] = Post.objects.all()
+            context["header"] = "Mom n Spots"
         return context
+
+# #Home View
+# @method_decorator(login_required, name='dispatch')
+# class Home(TemplateView):
+#     template_name = "base.html"
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["posts"] = Post.objects.all()
+#         return context
 
 # Signup View
 class Signup(View):
@@ -57,22 +75,7 @@ class PostList(TemplateView):
             context["header"] = "Your Mom n Spots"
         return context
 
-# PostList View (Index for All without user logged in)
-class PostListAll(TemplateView):
-    template_name = "post_list.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        shop_name = self.request.GET.get("shop_name")
-        if shop_name != None:
-            context["posts"] = Post.objects.all()
-        # We add a header context that includes the search param
-            context["header"] = f"Searching for {shop_name}"
-        
-        else:
-            context["posts"] = Post.objects.all()
-            context["header"] = "Everyone's Mom n Spots"
-        return context
 
 # Detail PostDetail View
 @method_decorator(login_required, name='dispatch')
@@ -89,6 +92,7 @@ class PostDetail(DetailView):
 # Create PostCreate View 
 @method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
+    
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('post_list')

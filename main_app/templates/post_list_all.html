@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+
+{% block title %}
+- Home
+{% endblock title %}
+
+{% block content %}
+
+<h1 class="title">{{header}}</h1>
+
+<!-- <form class="mb-5" method="get">
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" type="text" name="shop_name" placeholder="Name of Shop" />
+        </div>
+        <div class="control">
+            <input class="button is-success" type="submit" value="Search" />
+        </div>
+    </div> -->
+<!-- </form> -->
+{% if user.is_authenticated %}
+<a class="button" href="{% url 'post_list' %}">Browse Your Mom N Spots</a>
+<div class="column"></div>
+<div class="column"></div>
+<div class="column"></div>
+<div class="column"></div>
+<div class ="gallery">
+        {% for post in posts %}
+        
+        <a href="{% url 'post_detail' post.pk %}">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-square">
+                            <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
+                        </figure>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post.story}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p>Posted by Mom n Spotter: {{user.username}}</p>
+                    </div>
+                </div>
+            </div>
+        </a> 
+        
+        {% endfor %}
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+</div>
+</div>
+<!-- </div> -->
+<a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>
+
+{% else %}
+<div class="column"></div>
+<div class="column"></div>
+<div class="column"></div>
+<div class="column"></div>
+
+        {% for post in posts %}
+        <div class ="gallery">
+        <a href="{% url 'post_detail' post.pk %}">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-square">
+                            <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
+                        </figure>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post.story}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p>Posted by Mom n Spotter: {{user.username}}</p>
+                    </div>
+                </div>
+            </div>
+        </a> 
+    </div>
+        {% endfor %}
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+
+</div>
+<!-- </div> -->
+<a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>
+{% endif %}
+{% endblock %}
