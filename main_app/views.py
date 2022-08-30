@@ -14,6 +14,8 @@ from django.utils.decorators import method_decorator
 
 # Start Page View
 
+class Start(TemplateView):
+    template_name = "start.html"
 
 # PostList View (Index for All without user logged in)
 class Home(TemplateView):
