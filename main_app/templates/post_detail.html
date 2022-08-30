@@ -6,82 +6,30 @@
 {% endblock title %}
 
 {% block content %}
-<div class="detail__img">
-    <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
-</div>
-<div class="detail__name">
-    <h1 class="title">{{post.shop_name}}</h1>
-    <span>{{post.story}}</span>
-    <span>{{post.neighborhood}}</span>
-</div>
     <div>
-        <!-- inside container -->
-        <div class="mb-5">
             {% for post in posts %}
-            <div class="posts">
-                <span>{{forloop.counter}}</span>
-                    <span><b>{{post.shop_name}}</b></span>
-                    <img src="{{post.img.url}}" /> || <embed src="{{post.img.url}}"> 
-                    
-            </div>
-            <span>
-                <div class="dropdown">
-                    <div class="dropdown-trigger">
-                        <button
-                            class="button"
-                            aria-haspopup="true"
-                            aria-controls="dropdown-menu">
-                            <span>Add To Tags</span>
-                            <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-square">
+                            <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
+                        </figure>
                     </div>
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                            {% for tag in tags %}
-                            <a
-                                href="{% url 'tag_post_assoc' tag.pk post.pk %}?assoc=add"
-                                class="dropdown-item">
-                            {{tag.title}}
-                            </a>
-                            {% endfor %}
-                        </div>
+                    <div class="card-header">
+                        <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post.story}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p>Posted by Mom n Spotter: {{user.username}}</p>
                     </div>
                 </div>
-            </span>
-            {% empty %}
-                <!-- <article class="message">
-                    <div class="message-header">
-                        <p>Oh no, you haven't posted any Mom n Spots!</p>
-                    </div>
-                </article> -->
             {% endfor %}
         </div>
         <a href="{% url 'post_delete' post.pk %}" class="button is-danger">
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
-        </a> -->
-        <!-- <form class="mb-5" action="{% url 'post_create' %}" method="post">
-            {% csrf_token %}
-            <div class="field has-addons">
-                <div class="control">
-                    <input
-                    class="input"
-                    type="text"
-                    name="title"
-                    placeholder="Tag Name"
-                    required
-                    />
-                </div>
-                <div class="control">
-                    <input class="button is-primary" type="submit" value="Add Mom n Spot" />
-                </div>
-            </div>
-        </form>
+        </a>
+{%endblock%}
         
-        
-    </div>
-</div>
-{% endblock %}
