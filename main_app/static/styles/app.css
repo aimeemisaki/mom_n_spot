@@ -6,6 +6,20 @@ body {
     background-size: 100% 100%;
 }
 
+/* start page styling */
+.start-button {
+    background-color: tomato;
+    border-radius: 15px;
+}
+
+.start-button:hover {
+    color:black;
+}
+
+.start-text {
+    font-family: 'Fontdiner Swanky', cursive;
+    color: #ffffff;
+}
 
 
 .navbar {
