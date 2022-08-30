@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True if os.getenv('MODE') == 'dev' else False
 # DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # AWS CONFIGURATION 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
