@@ -20,26 +20,39 @@
     </div>
     <a class="button is-dark" href="{% url 'post_list' %}">Browse Your Mom N Spots</a>
 </form>
-<div class="gallery">
-    {% for post in posts %}
-    <a href="{% url 'post_detail' post.pk %}">
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-square">
-                    <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
-                </figure>
+<div class="column"></div>
+<div class="column"></div>
+<div class="column"></div>
+<div class="column"></div>
+<!-- <div class ="gallery"> -->
+        {% for post in posts %}
+        
+        <a href="{% url 'post_detail' post.pk %}">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-square">
+                            <img src="{{post.img.url}}" alt="{{post.shop_name}}" />
+                        </figure>
+                    </div>
+                    <div class="card-header">
+                        <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post.story}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p>Posted by Mom n Spotter: {{user.username}}</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-header">
-                <p class="card-header-title">{{post.shop_name}} ({{post.neighborhood}})</p>
-            </div>
-            <div class="card-body">
-                <p>{{post.story}}</p>
-            </div>
-            <div class="card-footer">
-                <p>Posted by Mom n Spotter: {{user.username}}</p>
-            </div>
-        </div>
-    </a> 
-    {% endfor %}
+        </a> 
+        
+        {% endfor %}
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+<!-- </div> -->
 </div>
+<!-- </div> -->
 <a class="button is-dark" href="{% url 'post_create' %}">Add a Mom N Spot</a>

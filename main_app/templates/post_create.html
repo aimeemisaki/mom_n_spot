@@ -6,13 +6,21 @@
 {% endblock title %}
 
 {% block content %}
-<h1>Post a Mom N Spot!</h1>
+<h1 class="title">Post a Mom N Spot !</h1>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %} 
-    {{ form.as_p }} 
-<button type="submit">submit</button>
-</form>
+<div class="columns is-mobile is-centered is-vcentered">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        <div class="columns is-mobile is-centered is-vcentered">
+            <button 
+            type="submit"
+            class="button is-responsive is-active">
+                <p class="md-text">submit</p>
+            </button>
+        </div>
+    </form>
+</div>
 
 {%endblock%}
 
