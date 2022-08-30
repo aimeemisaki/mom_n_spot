@@ -84,6 +84,11 @@ p {
 
 /* post_list_all styling */
 
+.home-body {
+    background-color:#F9D85B;
+    background-image: none;
+}
+
 .gallery {
 display: grid;
 justify-content: center;
@@ -320,6 +325,5 @@ li {
     font-size: 10px; 
     color: darkgrey;
 }
-
 
 
