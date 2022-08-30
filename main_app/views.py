@@ -92,6 +92,7 @@ class PostDetail(DetailView):
 # Create PostCreate View 
 @method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
+    
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('post_list')
