@@ -30,6 +30,7 @@ color: #ffffff;
     font-family: 'Yeseva One', cursive;
     font-size: 20px;
 }
+
 .container {
 padding: 40px;
 padding-right: 0;
@@ -43,11 +44,17 @@ font-family: 'Fontdiner Swanky', cursive;
 font-size: 60px;
 }
 
+p {
+    font-size: 12px;
+    font-family: 'Yeseva One', cursive;
+}
+
+
+/* post_list_all styling */
+
 .gallery {
 display: grid;
-/* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
 justify-content: center;
-/* gap: 30px; */
 align-items: center;
 }
 
@@ -67,9 +74,15 @@ z-index: 10;
     width:400px;
     height:400px;
 }
-p {
-font-size: 12px;
-font-family: 'Yeseva One', cursive;
+
+#browse-button {
+    background-color: tomato;
+    margin-top: 30px;
+    border-radius: 15px;
+}
+
+#browser-button:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
 }
 
 .detail__img {
@@ -148,7 +161,9 @@ cursor: pointer;
     margin-top: 30px;
     margin-bottom: 15px;
     color: black;
+    border-radius: 15px;
 }
+
 
 #id_img {
     font-family: 'Yeseva One', cursive;
@@ -220,7 +235,9 @@ label {
     color: black;
     font-size: 12px;
     padding: 10px;
+    border-radius: 15px;
 }
+
 
 .helptext {
     font-size: 10px;
