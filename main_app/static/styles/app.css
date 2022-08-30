@@ -87,8 +87,8 @@ z-index: 10;
     border-radius: 15px;
 }
 
-#browser-button:hover {
-    background-color: hsla(0, 0%, 100%, 0.1);
+#browse-button:hover {
+    color: white;
 }
 
 .detail__img {
@@ -170,6 +170,10 @@ cursor: pointer;
     border-radius: 15px;
 }
 
+#submit-button:hover {
+    color: white;
+}
+
 
 #id_img {
     font-family: 'Yeseva One', cursive;
@@ -244,6 +248,9 @@ label {
     border-radius: 15px;
 }
 
+#auth-submit-button:hover {
+    color: white;
+}
 
 .helptext {
     font-size: 10px;
