@@ -213,6 +213,15 @@ label {
 
 }
 
+#auth-submit-button {
+    background-color: tomato;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: black;
+    font-size: 12px;
+    padding: 10px;
+}
+
 .helptext {
     font-size: 10px;
     color: darkgrey;
@@ -255,4 +264,6 @@ li {
     font-size: 10px; 
     color: darkgrey;
 }
+
+
 
