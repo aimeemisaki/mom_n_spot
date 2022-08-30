@@ -10,6 +10,5 @@ urlpatterns = [
     path('myposts/<int:pk>/', views.PostDetail.as_view(), name="post_detail"),
     path('myposts/<int:pk>/delete', views.PostDelete.as_view(), name="post_delete"),
     path('tags/<int:pk>/posts/<int:post_pk>', views.TagPostAssoc.as_view(), name="tag_post_assoc"),
-    
 ]
 
