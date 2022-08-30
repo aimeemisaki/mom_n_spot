@@ -17,7 +17,7 @@ from django.utils.decorators import method_decorator
 
 # PostList View (Index for All without user logged in)
 class Home(TemplateView):
-    template_name = "post_list.html"
+    template_name = "post_list_all.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         shop_name = self.request.GET.get("shop_name")
