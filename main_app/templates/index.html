@@ -15,10 +15,10 @@
         <title>Mom n Spot  {% block title %}{% endblock %}</title> 
     </head>
     <body>
-        <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item">
-                    <img src="../..images/navLogo.png" alt="LOGO"/>
+                    <img src="{% static 'images/navLogo.png' %}" alt="LOGO" width="400" height="300" />
                 </a>
                 <span class="navbar-burger" data-target="navbarMenuHeroC" aria-label="menu">
                     <span aria-hidden="true"></span>

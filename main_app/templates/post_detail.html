@@ -58,6 +58,11 @@
                 </article> -->
             {% endfor %}
         </div>
+        <a href="{% url 'post_delete' post.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a> -->
         <!-- <form class="mb-5" action="{% url 'post_create' %}" method="post">
             {% csrf_token %}
             <div class="field has-addons">
@@ -76,11 +81,7 @@
             </div>
         </form>
         
-        <a href="{% url 'post_delete' post.pk %}" class="button is-danger">
-            <span class="icon">
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a> -->
+        
     </div>
 </div>
 {% endblock %}
