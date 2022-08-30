@@ -173,6 +173,7 @@ cursor: pointer;
 label {
     font-size: 15px;
     margin-right: 10px;
+    margin-top: 10px;
 }
 
 #id_shop_name {
@@ -221,6 +222,12 @@ label {
 #id_username {
     font-family: 'Yeseva One', cursive;
     font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#id_password {
     display: flex;
     flex-direction: column;
     width: 200px;

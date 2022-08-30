@@ -8,7 +8,7 @@
 
 <div class="columns is-mobile is-centered">
     <div class="card" id="auth-form-card">
-        <form method="post" action="{% url 'login' %}" id="form-card">
+        <form method="post" action="{% url 'login' %}">
             {% csrf_token %} 
             {{ form.as_p }}
             <div class="columns is-mobile is-centered is-vcentered">
