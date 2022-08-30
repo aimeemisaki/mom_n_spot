@@ -28,10 +28,12 @@
             </div>
             {% if user.is_authenticated %}
                 <div class="navbar-menu">
-                    <div class="navbar-end">
+                    <div class="navbar-start">
                         <div class="navbar-item">
                             Welcome {{user.username}}!
                         </div>
+                    </div>
+                    <div class="navbar-end">
                         <a class="navbar-item" href="{% url 'post_create' %}">
                             Post A Mom N Spot 
                         </a>
