@@ -19,11 +19,12 @@
     </head>
     <body>
         <div class="columns is-mobile is-centered">
-            <img src="{% static 'images/homeLogo.png' %}" alt="start logo" />
-            <a href="{% url 'post_list_all' %}">
-                <button class="start-button">
-                    <p class="start-text">Come on in!/<p>
-                </button>
+                <img src="{% static 'images/homeLogo1.png' %}" alt="start logo" id="start-img"/>
+        </div>
+        <div class="columns is-mobile is-centered">
+            <a class="button" id="start-button" href="{% url 'post_list_all' %}">
+                <p class="start-text">Come on in !</p>
             </a>
+            </div>
         </div>
     </body>
