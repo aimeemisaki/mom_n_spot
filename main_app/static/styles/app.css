@@ -17,7 +17,6 @@ body {
 
 .start-text {
     font-family: 'Fontdiner Swanky', cursive;
-    
     font-size: 40px;
 }
 
@@ -43,9 +42,9 @@ body {
     
 }
 
-#home-logo {
-    width: 70px;
-    height: 70px;
+.lg-text {
+    font-family: 'Yeseva One', cursive;
+    font-size: 20px;
 }
 
 html {
@@ -105,10 +104,11 @@ align-items: center;
 
 .card {
 transition: 0.1s linear;
-width: 400px;
-height: 600px;
+width: 200px;
+height: 200px;
 border-radius: 15px;
 }
+
 
 .card:hover {
 transform: scale(1.1);
@@ -204,6 +204,11 @@ margin-top: 500px;
     padding: 12px;
     filter: drop-shadow(10px 10px 18px black);
     border-radius: 15px;
+    transition: 0.1s linear;
+    width: 400px;
+    height: 600px;
+    border-radius: 15px;
+    background-color: white;
 
 }
 
@@ -276,11 +281,15 @@ label {
 #auth-form-card {
     margin-top: 20px;
     padding: 12px;
-    filter: drop-shadow(10px 10px 18px black);
+    /* filter: drop-shadow(10px 10px 18px black); */
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-
+    height: 200px;
+    width: 200px;
+    transition: 0.1s linear;
+    border-radius: 25% 10%;   
+    background-color: white;
 }
 
 #auth-submit-button {

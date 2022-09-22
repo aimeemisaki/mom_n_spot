@@ -7,7 +7,7 @@
 <h1 class="title">Log In</h1>
 
 <div class="columns is-mobile is-centered">
-    <div class="card" id="auth-form-card">
+    <div id="auth-form-card">
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %} 
             {{ form.as_p }}
