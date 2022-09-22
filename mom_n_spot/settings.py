@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'main_app',
     'storages',
     'tailwind',
+    'theme'
 ]
 
 MIDDLEWARE = [
