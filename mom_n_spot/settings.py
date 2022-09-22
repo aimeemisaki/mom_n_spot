@@ -67,7 +67,8 @@ INSTALLED_APPS = [
     'main_app',
     'storages',
     'tailwind',
-    'theme'
+    'theme',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'mom_n_spot.urls'
