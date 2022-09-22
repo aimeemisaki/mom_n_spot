@@ -98,6 +98,8 @@ TEMPLATES = [
     },
 ]
 
+TAILWIND_APP_NAME = 'theme'
+
 WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
 
 
