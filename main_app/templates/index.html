@@ -1,12 +1,10 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
         <link rel="stylesheet" href="{% static '/styles/app.css' %}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -21,9 +19,13 @@
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a 
-                    class="navbar-item" id ="home-logo" 
+                    class="navbar-item"
                     href="{% url 'post_list_all' %}">
-                        <img src="{% static 'images/navLogo.png' %}" alt="LOGO"/>
+                    <img src=
+                        "https://ucarecdn.com/d0491550-1165-4c34-83ca-f67de4654f7b/-/preview/1000x400/-/format/auto/-/quality/smart_retina/"
+                        width="124"
+                        height="32"
+                        />
                 </a>
                 <span class="navbar-burger" data-target="navbarMenuHeroC" aria-label="menu">
                     <span aria-hidden="true"></span>

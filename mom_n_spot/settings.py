@@ -27,7 +27,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv('MODE') == 'dev' else False
-# DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -96,6 +95,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
 

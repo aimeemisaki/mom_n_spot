@@ -25,8 +25,7 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('posts/create/', views.PostCreate.as_view(), name="post_create"),
-    # path('uploadtest/', views.uploadtest, name='uploadtest'),
-    # path('image_upload', UploadImg, name = 'image_upload'),
+    path("__reload__/", include("django_browser_reload.urls")),
 ] 
 
 if settings.DEBUG:
