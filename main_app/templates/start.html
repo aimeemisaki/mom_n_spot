@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,15 +16,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&family=Yeseva+One&display=swap" rel="stylesheet">
 
         <title>Mom n Spot</title> 
+        {% tailwind_preload_css %}
+        {% tailwind_css %}
     </head>
-    <body>
-        <div class="columns is-mobile is-centered">
-                <img src="{% static 'images/homeLogo1.png' %}" alt="start logo" id="start-img"/>
-        </div>
-        <div class="columns is-mobile is-centered">
-            <a class="button" id="start-button" href="{% url 'post_list_all' %}">
-                <p class="start-text">Come on in !</p>
-            </a>
+    <body class="start-body">
+        <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+            <div class="relative z-30 p-5 ">
+                <div id="start-button-container">
+                    <a class="button w-100 transition duration-500 hover:scale-125" id="start-button" href="{% url 'post_list_all' %}">
+                    <p class="start-text">Come on in !</p>
+                    </a>
+                </div>
             </div>
-        </div>
+            <video id="start-video" autoPlay="autoplay" loop={true} muted defaultmuted="true" playsInline class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+                <source
+                src="{% static 'images/AerialBGVid.mp4' %}" 
+                type="video/mp4"
+                />      
+            </video>
+        </header>
     </body>
