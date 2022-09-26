@@ -52,8 +52,6 @@ STATIC_ROOT = 'https://momnspot-assets.s3.amazonaws.com/static/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-
-
 DEFAULT_FILE_STORAGE = 'mom_n_spot.storage_backends.MediaStorage'
 
 # Application definition
@@ -100,6 +98,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
+
+#Tailwind CSS Configs
+
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 
 # Database
