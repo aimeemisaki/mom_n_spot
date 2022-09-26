@@ -62,11 +62,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'theme',
     'django.contrib.staticfiles',
     'main_app',
     'storages',
     'tailwind',
-    'theme',
     'django_browser_reload'
 ]
 
