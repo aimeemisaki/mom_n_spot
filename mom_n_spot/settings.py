@@ -66,7 +66,8 @@ INSTALLED_APPS = [
     'main_app',
     'storages',
     'tailwind',
-    'theme'
+    'theme',
+    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
