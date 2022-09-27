@@ -52,8 +52,6 @@ STATIC_ROOT = 'https://momnspot-assets.s3.amazonaws.com/static/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-
-
 DEFAULT_FILE_STORAGE = 'mom_n_spot.storage_backends.MediaStorage'
 
 # Application definition
@@ -64,19 +62,24 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'theme',
     'django.contrib.staticfiles',
     'main_app',
     'storages',
+    'tailwind',
+    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'mom_n_spot.urls'
@@ -98,6 +101,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
+
+#Tailwind CSS Configs
+
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+NPM_BIN_PATH = '/usr/local/bin/npm'
 
 
 # Database
@@ -143,10 +154,11 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
