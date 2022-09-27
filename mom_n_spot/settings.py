@@ -66,8 +66,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app',
     'storages',
-    'tailwind',
-    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
@@ -102,13 +100,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mom_n_spot.wsgi.application'
 
-#Tailwind CSS Configs
-
-TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-NPM_BIN_PATH = '/usr/local/bin/npm'
 
 
 # Database
