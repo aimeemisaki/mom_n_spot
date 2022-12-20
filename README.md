@@ -5,10 +5,12 @@ Mom n' Pop stores are integral to the culture and community of any neighborhood 
 
 
 ### 🧰 Tech Stack Used
-Front-end and Back-end: Django
-Database: ProsgreSQL
-Media Storage: Amazon Web Services S3
-HTML/CSS (including Bulma and FavIcons)
+<a href='https://developer.mozilla.org/en-US/docs/Glossary/HTML5'><img src='https://i.ibb.co/Fx1ZFRF/html5.png' alt='HTML5' width=60/></a>
+<a href='https://developer.mozilla.org/en-US/docs/Web/CSS'><img src='https://i.ibb.co/n1pJ22s/css.png' alt='CSS' width=60></a>
+<a href='https://www.python.org/'><img src='https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png' alt='Python' width=60 /></a>
+<a href='https://docs.djangoproject.com/en/4.1/'><img src='https://gitlab.com/uploads/-/system/project/avatar/11886674/django.png' alt='Django Fullstack' width=60/></a>
+<a href='https://www.postgresql.org/'><img src='https://cdn.iconscout.com/icon/free/png-256/postgresql-11-1175122.png' alt='PostgreSQL' width=60/></a>
+<a href='https://aws.amazon.com/s3/?nc2=type_a'><img src='https://i.ibb.co/5G0g2mY/aws.png' alt='Amazon Web Services S3' width=60/></a>
 
 
 ### 👩‍💻 User stories
@@ -25,7 +27,7 @@ HTML/CSS (including Bulma and FavIcons)
 <img width="573" alt="Screen Shot 2022-08-30 at 11 16 20" src="https://user-images.githubusercontent.com/93743792/187512826-da4505cd-e6a0-40d8-9dd2-d635848930db.png">
 
 
-### Wireframes
+### 🪟 Wireframes
 <img width="373" alt="Screen Shot 2022-08-23 at 10 40 33" src="https://media.git.generalassemb.ly/user/40229/files/b4341938-a8a7-420f-b2a9-3718f8e4b126">
 
 
@@ -41,10 +43,3 @@ HTML/CSS (including Bulma and FavIcons)
 
 ### 💪 Challenges
 Learning Django within 3 days and creating a full-stack application in one software platform meant reading up on many docs and searching errors I had never seen before. Deployment on Heroku from Django was also most definitely a challenge, with error logs not being too specific; for example, there was a time where nothing was wrong with my code, but I was receieving an application error, so I ended up just creating a new heroku app and connected it to my existing repo and it worked! Furthermore, I challenged myself further by putting more effort into styling than usual, because I understand that an aesthetically appealing app is, of course, integral for users - now that was a challenge, especially using Bulma, a new styling framework I had never used before.
-
-## 🏃‍♀️ Future Steps
-- Adding a Favorites Model for users to add their Mom n Spot posts to instead of a Tag Model
-- Building it as a game style so users can get "points" every time they make a Mom n Spot post.
-- Installing and using Tailwind CSS framework
-- Building an Update classed based view
-- Further styling, eg. animations, making it more mobile-friendly
