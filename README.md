@@ -20,9 +20,6 @@ Head over to the <a href=''>website</a> to view more! 👀
 ## 🧩 Entity Relationship Diagram/Model
 <img width="600" alt="Screen Shot 2022-08-30 at 11 16 20" src="https://user-images.githubusercontent.com/93743792/187512826-da4505cd-e6a0-40d8-9dd2-d635848930db.png">
 
-## 📄 PostgreSQL Table
-<img width="500" alt="Screen Shot 2022-08-30 at 11 06 00" src="https://user-images.githubusercontent.com/93743792/208552538-b4a5dade-d0bb-4163-9cdf-9ef15b9953ac.png">
-
 ## 👩‍💻 User stories
 
 - As a citizen and user, I would like an application that brings attention to Mom n Pop shops and citizens' stories/memories with those shops that make them special so that those Mom n Pop shops can continue and thrive in their businesses and citizens can have a sense of unity in shared memories - revingorating a sense of community post-COVID.
