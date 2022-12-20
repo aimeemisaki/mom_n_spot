@@ -1,7 +1,8 @@
 ### 🏠 Mom N Spot
-Mom n' Pop stores are integral to the culture and community of any neighborhood - from your local deli to the bookstore you found your favorite childhood novel at. With hardship caused by COVID restrictions and ever-growing urban developmental projects, **_Mom n' Pops need our help more than ever._** 
 
-*With Mom N Spot, users are able to spot and post a Mom n Pop store that has meaning to them and view their own list of Mom n Spots as well as other users' Mom n Spots posts.*
+👨‍👨‍👧‍👦 Mom n' Pop stores are integral to the culture and community of any neighborhood - from your local deli to the bookstore you found your favorite childhood novel at. With hardship caused by COVID restrictions and ever-growing urban developmental projects, **_Mom n' Pops need our help more than ever._** 
+
+👩‍👩‍👦‍👦 *With Mom N Spot, users are able to spot and post a Mom n Pop store that has meaning to them and view their own list of Mom n Spots as well as other users' Mom n Spots posts.*
 
 ## 🪄 Deployed Website Link
 
